@@ -50,7 +50,8 @@ export function formatCurrency(amount: number) {
   return `$${amount.toFixed(2)}`;
 }
 
-export function generatePDF(invoice: InvoiceData) {
+export function generatePDF(invoice: InvoiceData | null) {
+  if (!invoice) return;
   const doc = new jsPDF();
   let y = 30;
 

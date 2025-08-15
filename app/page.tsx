@@ -7,7 +7,7 @@ import { Eye } from "lucide-react";
 import React from "react";
 
 export default function Home() {
-  const [showPreview, setShowPreview] = React.useState<boolean>(true);
+  const [showPreview, setShowPreview] = React.useState<boolean>(false);
 
   if (showPreview) {
     return <InvoicePreview onBack={() => setShowPreview(false)} />;

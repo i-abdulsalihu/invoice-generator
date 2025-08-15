@@ -93,7 +93,7 @@ export const InvoiceItem: React.FC<InvoiceItemProps> = ({
       </div>
       <div className="col-span-2">
         <Label htmlFor="item-amount">Amount</Label>
-        <div className="h-9 px-3 py-1.5 text-sm  bg-gray-50 border rounded-md flex items-center">
+        <div className="h-11 px-3 py-1.5 text-sm  bg-gray-50 border rounded-md flex items-center">
           ${typeof item.amount === "number" ? item.amount.toFixed(2) : "0.00"}
         </div>
       </div>
