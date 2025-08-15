@@ -6,11 +6,19 @@ import { TaxAndTotals } from "./tax-and-totals";
 
 export const InvoiceForm = () => {
   return (
-    <div className="space-y-6">
-      <BasicDetails />
-      <ContactDetails />
-      <ItemsList />
-      <TaxAndTotals />
+    <div className="space-y-8">
+      <div className="animate-slide-up" style={{ animationDelay: '0.1s', animationFillMode: 'both' }}>
+        <BasicDetails />
+      </div>
+      <div className="animate-slide-up" style={{ animationDelay: '0.2s', animationFillMode: 'both' }}>
+        <ContactDetails />
+      </div>
+      <div className="animate-slide-up" style={{ animationDelay: '0.3s', animationFillMode: 'both' }}>
+        <ItemsList />
+      </div>
+      <div className="animate-slide-up" style={{ animationDelay: '0.4s', animationFillMode: 'both' }}>
+        <TaxAndTotals />
+      </div>
     </div>
   );
 };
