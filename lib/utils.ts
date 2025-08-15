@@ -66,14 +66,14 @@ export function generatePDF(invoice: InvoiceData | null) {
   
   // Color palette to match the preview
   const colors = {
-    primary: [30, 58, 138], // blue-800
-    secondary: [71, 85, 105], // slate-600
-    accent: [99, 102, 241], // indigo-500
-    emerald: [16, 185, 129], // emerald-500
-    purple: [147, 51, 234], // purple-600
-    lightGray: [248, 250, 252], // slate-50
-    darkGray: [51, 65, 85], // slate-700
-    success: [34, 197, 94], // green-500
+    primary: [30, 58, 138] as const, // blue-800
+    secondary: [71, 85, 105] as const, // slate-600
+    accent: [99, 102, 241] as const, // indigo-500
+    emerald: [16, 185, 129] as const, // emerald-500
+    purple: [147, 51, 234] as const, // purple-600
+    lightGray: [248, 250, 252] as const, // slate-50
+    darkGray: [51, 65, 85] as const, // slate-700
+    success: [34, 197, 94] as const, // green-500
   };
   
   let y = margin;
@@ -121,7 +121,7 @@ export function generatePDF(invoice: InvoiceData | null) {
   const columnWidth = (contentWidth - 10) / 2;
   
   // FROM section
-  let fromX = margin;
+  const fromX = margin;
   // FROM badge
   doc.setFillColor(209, 250, 229); // emerald-100
   doc.roundedRect(fromX, y - 5, 25, 8, 2, 2, 'F');
@@ -144,7 +144,7 @@ export function generatePDF(invoice: InvoiceData | null) {
   
   // TO section
   y -= 14; // Reset y for TO section
-  let toX = margin + columnWidth + 10;
+  const toX = margin + columnWidth + 10;
   // TO badge
   doc.setFillColor(233, 213, 255); // purple-100
   doc.roundedRect(toX, y - 5, 20, 8, 2, 2, 'F');
@@ -167,7 +167,6 @@ export function generatePDF(invoice: InvoiceData | null) {
   
   // ITEMS TABLE SECTION
   y += 25;
-  const tableStartY = y;
   const tableHeaders = ['Description', 'Qty', 'Rate', 'Amount'];
   const columnWidths = [contentWidth * 0.5, contentWidth * 0.15, contentWidth * 0.175, contentWidth * 0.175];
   let currentX = margin;
@@ -245,7 +244,6 @@ export function generatePDF(invoice: InvoiceData | null) {
   y += 20;
   const totalsBoxWidth = 80;
   const totalsBoxX = pageWidth - margin - totalsBoxWidth;
-  const totalsStartY = y;
   
   // Totals background
   doc.setFillColor(248, 250, 252); // slate-50
